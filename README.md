@@ -1,4 +1,4 @@
-# My Data Selfie App
+# My Mood App
 
 ## 1. Overview
 In this project, we explore some cool Javascripts functionalities, like API, Geolocation, POST requests, and so on.

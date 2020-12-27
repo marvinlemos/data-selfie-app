@@ -1,3 +1,4 @@
+const { response } = require('express')
 const express = require('express')
 const Datastore = require('nedb')
 
@@ -19,11 +20,16 @@ app.post('/api', (req, res) => {
     const timestamp = Date.now()
     data.timestamp = timestamp
     database.insert(data)
-    res.json({
-        'status': 'OK',
-        'timestamp': timestamp,
-        'latitude': data.lat,
-        'longitude': data.lon
-    })
+    res.json(data)
 
+})
+
+app.get('/api', (req, res) => {
+    database.find({}, (err, data) => {
+        if (err){
+            res.end()
+            return  
+        }
+        res.json(data)
+    })
 })

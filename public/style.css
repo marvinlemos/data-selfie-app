@@ -1,5 +1,6 @@
 body h1 {
     text-align: center;
+    margin: 6px;
 }
 
 .chart {
@@ -24,4 +25,20 @@ body h1 {
 
 .info {
     margin: 6px;
+    font-size: 20px;
+}
+
+#moodText {
+    font-size: 20px;
+    width: 40%;
+    padding: 4px 6px;
+}
+
+#btnSendInfo {
+    font-size: 20px;
+    padding: 4px 6px;
+}
+
+#formInfo {
+    display: inline-block;
 }

@@ -16,14 +16,18 @@
 </head>
 
 <body>
-    <h1>Data Selfie App</h1>
+    <h1>My Mood App</h1>
 
     <div class="info">
         <p>
             Latitude: <span id="latitude"></span>&deg;<br />
             Longitude: <span id="longitude"></span>&deg;
         </p>
-        <button type="button" id="btnSendInfo">Submit</button>
+        <div class="formInfo">
+            <label for="moodText">Enter your mood</label>
+            <input type="text" id="moodText" placeholder="Doing great" />
+            <button type="button" id="btnSendInfo">Submit</button>
+        </div>
     </div>
 
     <div id="myMap"></div>
@@ -64,10 +68,6 @@
 
                 marker.setLatLng([lat, lon])
                 myMap.setView([lat, lon], 2)
-
-                const data = { lat, lon }
-                const json = await sendInfo(data)
-                console.log(json)
             })
         } else {
             console.log('geolocation not available')
@@ -75,12 +75,15 @@
 
         $(function () {
             $('#btnSendInfo').click(async () => {
-                if ($('#latitude').text() && $('#longitude').text()) {
+                if ($('#latitude').text() && $('#longitude').text() && $('#moodText').val()) {
                     const data = {'lat': $('#latitude').text(),
-                                  'lon': $('#longitude').text()}
+                                  'lon': $('#longitude').text(),
+                                  'mood': $('#moodText').val()}
 
                     const json = await sendInfo(data)
                     console.log(json)
+                }else{
+                    alert('Please, fill all the information.')
                 }
             })
         })
