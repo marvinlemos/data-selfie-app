@@ -17,4 +17,11 @@ body h1 {
     background-color:aliceblue;
 }
 
-#myMap { height: 180px; }
+#myMap { 
+    height: 180px; 
+    margin: 6px;
+}
+
+.info {
+    margin: 6px;
+}
