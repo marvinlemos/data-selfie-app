@@ -19,6 +19,7 @@
 
             for (item of data) {
                 const root = document.createElement('div')
+                
                 const mood = document.createElement('div')
                 mood.textContent = `mood: ${item.mood}`
 
@@ -29,7 +30,10 @@
                 const dateString = new Date(item.timestamp).toLocaleString()
                 date.textContent = dateString
 
-                root.append(mood, geo, date)
+                const image = document.createElement('img')
+                image.src = item.image64
+
+                root.append(mood, geo, date, image)
                 document.body.append(root)
                 document.body.append(document.createElement('br'))
             }

@@ -13,6 +13,9 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"
+        integrity="sha512-b/htz6gIyFi3dwSoZ0Uv3cuv3Ony7EeKkacgrcVg8CMzu90n777qveu0PBcbZUA7TzyENGtU+qZRuFAkfqgyoQ=="
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -25,7 +28,7 @@
         </p>
         <div class="formInfo">
             <label for="moodText">Enter your mood</label>
-            <input type="text" id="moodText" placeholder="Doing great" />
+            <input type="text" id="moodText" placeholder="Doing Great" />
             <button type="button" id="btnSendInfo">Submit</button>
         </div>
     </div>
@@ -38,6 +41,33 @@
     <script>
         const myMap = L.map('myMap').setView([0, 0], 1)
         const marker = L.marker([0, 0]).addTo(myMap)
+
+        //p5.js
+        function setup() {
+            noCanvas()
+            const video = createCapture(VIDEO);
+            video.size(320, 240)
+
+            $(function () {
+                $('#btnSendInfo').click(async () => {
+                    if ($('#latitude').text() && $('#longitude').text() && $('#moodText').val()) {
+                        video.loadPixels()
+                        const image64 = video.canvas.toDataURL()
+                        const data = {
+                            'lat': $('#latitude').text(),
+                            'lon': $('#longitude').text(),
+                            'mood': $('#moodText').val(),
+                            image64
+                        }
+
+                        const json = await sendInfo(data)
+                        console.log(json)
+                    } else {
+                        alert('Please, fill all the information.')
+                    }
+                })
+            })
+        }
 
         const sendInfo = async (data) => {
             options = {
@@ -72,21 +102,6 @@
         } else {
             console.log('geolocation not available')
         }
-
-        $(function () {
-            $('#btnSendInfo').click(async () => {
-                if ($('#latitude').text() && $('#longitude').text() && $('#moodText').val()) {
-                    const data = {'lat': $('#latitude').text(),
-                                  'lon': $('#longitude').text(),
-                                  'mood': $('#moodText').val()}
-
-                    const json = await sendInfo(data)
-                    console.log(json)
-                }else{
-                    alert('Please, fill all the information.')
-                }
-            })
-        })
     </script>
 </body>
 
