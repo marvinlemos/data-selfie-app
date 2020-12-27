@@ -1,4 +1,5 @@
 const express = require('express')
+const Datastore = require('nedb')
 
 const app = express()
 
@@ -9,15 +10,20 @@ app.listen(3000, () => {
 app.use(express.static('public'))
 app.use(express.json({limit: '1mb'}))
 
+const database = new Datastore('database.db')
+database.loadDatabase()
+
 
 app.post('/api', (req, res) => {
-    console.log(req.body)
-    const lat = req.body.lat
-    const lon = req.body.lon
+    const data = req.body
+    const timestamp = Date.now()
+    data.timestamp = timestamp
+    database.insert(data)
     res.json({
         'status': 'OK',
-        'latitude': lat,
-        'longitude': lon
+        'timestamp': timestamp,
+        'latitude': data.lat,
+        'longitude': data.lon
     })
 
 })
