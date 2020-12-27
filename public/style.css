@@ -1,0 +1,20 @@
+body h1 {
+    text-align: center;
+}
+
+.chart {
+    margin: auto;
+    width: 800px;
+    height: 400px;
+}
+
+.about-data {
+    padding: 30px;
+    text-align: center;
+}
+
+.iss {
+    background-color:aliceblue;
+}
+
+#myMap { height: 180px; }
