@@ -1,4 +1,5 @@
 # My Mood App
+My Mood App is a small service that allows you to save information about your mood. Find out when and where you felt that way—the 'WHY' I leave it up to you.
 
 ## 1. Overview
 In this project, we explore some cool Javascripts functionalities, like API, Geolocation, POST requests, and so on.
@@ -17,5 +18,9 @@ npm run dev
 ## 4. License
 MIT - [LICENSE.md](LICENSE.md).
 
-## 5. Acknowledgments
+## 5. Author:
+
+* **Marvin Lemos** - [LinkedIn](https://www.linkedin.com/in/marvin-lemos-289425a/)
+
+## 6. Acknowledgments
 I would like to say a huge thank you to [Daniel Shiffman](https://thecodingtrain.com).
