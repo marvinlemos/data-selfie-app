@@ -2,6 +2,7 @@ const { response } = require('express')
 const express = require('express')
 const Datastore = require('nedb')
 var axios = require("axios").default;
+require('dotenv').config();
 
 const app = express()
 
@@ -45,7 +46,7 @@ app.get('/weather/:latlong', (req, res) => {
         url: 'https://weatherbit-v1-mashape.p.rapidapi.com/current',
         params: { lat: lat, lon: lon },
         headers: {
-            'x-rapidapi-key': '---',
+            'x-rapidapi-key': process.env.API_WEATHER_KEY,
             'x-rapidapi-host': 'weatherbit-v1-mashape.p.rapidapi.com'
         }
     };
