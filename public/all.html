@@ -7,40 +7,20 @@
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href="./style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
 </head>
 
 <body>
     <h1>My Mood App</h1>
 
-    <script>
-        const getDate = async () => {
-            const response = await fetch('/api')
-            const data = await response.json()
+    <div id="myMap"></div>
 
-            for (item of data) {
-                const root = document.createElement('div')
-                
-                const mood = document.createElement('div')
-                mood.textContent = `mood: ${item.mood}`
-
-                const geo = document.createElement('div')
-                geo.textContent = `${item.lat}°, ${item.lon}°`
-
-                const date = document.createElement('div')
-                const dateString = new Date(item.timestamp).toLocaleString()
-                date.textContent = dateString
-
-                const image = document.createElement('img')
-                image.src = item.image64
-
-                root.append(mood, geo, date, image)
-                document.body.append(root)
-                document.body.append(document.createElement('br'))
-            }
-        }
-
-        getDate()
-    </script>
+    <script src="all.js"></script>
 
 </body>
 

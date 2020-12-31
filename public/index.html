@@ -13,9 +13,6 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"
-        integrity="sha512-b/htz6gIyFi3dwSoZ0Uv3cuv3Ony7EeKkacgrcVg8CMzu90n777qveu0PBcbZUA7TzyENGtU+qZRuFAkfqgyoQ=="
-        crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
@@ -36,7 +33,10 @@
                             Longitude: <span id="longitude"></span>&deg;
                         </div>
                         <div class="mb-3">
-                            <label for="moodText" class="form-label">Enter your mood</label>
+                            The weather here is <span id="weather"></span>&deg;C;
+                        </div>
+                        <div class="mb-3">
+                            <label for="moodText" class="form-label"><b>Enter your mood</b></label>
                             <input type="text" class="form-control" id="moodText" placeholder="Doing Great">
                         </div>
                         <button type="button" class="btn btn-primary btn-block" id="btnSendInfo">Submit</button>
@@ -44,9 +44,10 @@
                 </div>
             </div>
         </div>
-
-        <div id="myMap"></div>
-
+        <div id="cameraCanvas">
+            <canvas id="defaultCanvas" class="p5Canvas" width="320" height="240"
+                style="height: 240px; width: 320px;"></canvas>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -54,6 +55,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"
+        integrity="sha512-b/htz6gIyFi3dwSoZ0Uv3cuv3Ony7EeKkacgrcVg8CMzu90n777qveu0PBcbZUA7TzyENGtU+qZRuFAkfqgyoQ=="
         crossorigin="anonymous"></script>
 
     <script src="./index.js"></script>

@@ -1,9 +1,7 @@
-const myMap = L.map('myMap').setView([0, 0], 1)
-const marker = L.marker([0, 0]).addTo(myMap)
-
 //p5.js
 function setup() {
-    noCanvas()
+    var canvas = createCanvas(320, 240)
+    canvas.parent('cameraCanvas')
     const video = createCapture(VIDEO);
     video.size(320, 240)
 
@@ -15,6 +13,7 @@ function setup() {
                 const data = {
                     'lat': $('#latitude').text(),
                     'lon': $('#longitude').text(),
+                    'temp': $('#weather').text(),
                     'mood': $('#moodText').val(),
                     image64
                 }
@@ -41,11 +40,6 @@ const sendInfo = async (data) => {
     return json
 }
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
-    }).addTo(myMap);
-
 if ('geolocation' in navigator) {
     console.log('geolocation available')
     navigator.geolocation.getCurrentPosition(async position => {
@@ -55,14 +49,11 @@ if ('geolocation' in navigator) {
         document.getElementById("latitude").textContent = lat
         document.getElementById("longitude").textContent = lon
 
-        //const weather_api = `/weather`
         const weather_api = `/weather/${lat},${lon}`
         const response = await fetch(weather_api)
         const json = await response.json()
+        document.getElementById("weather").textContent = json.app_temp
         console.log(json)
-
-        marker.setLatLng([lat, lon])
-        myMap.setView([lat, lon], 2)
     })
 } else {
     console.log('geolocation not available')
