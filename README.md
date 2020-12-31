@@ -24,3 +24,5 @@ MIT - [LICENSE.md](LICENSE.md).
 
 ## 6. Acknowledgments
 I would like to say a huge thank you to [Daniel Shiffman](https://thecodingtrain.com).
+
+<span>Photo by <a href="https://unsplash.com/@monaeendra?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Mona Eendra</a> on <a href="https://unsplash.com/s/photos/mood?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>

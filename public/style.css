@@ -2,20 +2,8 @@ body h1 {
     text-align: center;
     margin: 6px;
 }
-
-.chart {
-    margin: auto;
-    width: 800px;
-    height: 400px;
-}
-
-.about-data {
-    padding: 30px;
-    text-align: center;
-}
-
-.iss {
-    background-color:aliceblue;
+video {
+    margin: 18px;
 }
 
 #myMap { 
@@ -25,20 +13,21 @@ body h1 {
 
 .info {
     margin: 6px;
-    font-size: 20px;
 }
 
 #moodText {
     font-size: 20px;
-    width: 40%;
-    padding: 4px 6px;
 }
 
-#btnSendInfo {
-    font-size: 20px;
-    padding: 4px 6px;
+.bg {
+    background: url('../bg/mona_eendra.jpg') no-repeat;
+    width: 100%;
+    background-size: 100%;
 }
 
-#formInfo {
-    display: inline-block;
+.form-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #000;
 }
