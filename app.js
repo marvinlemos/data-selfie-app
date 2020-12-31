@@ -45,7 +45,7 @@ app.get('/weather/:latlong', (req, res) => {
         url: 'https://weatherbit-v1-mashape.p.rapidapi.com/current',
         params: { lat: lat, lon: lon },
         headers: {
-            'x-rapidapi-key': '1db03746e2msh8fdfa59d862598cp13927ajsn59af2da6b6d8',
+            'x-rapidapi-key': '---',
             'x-rapidapi-host': 'weatherbit-v1-mashape.p.rapidapi.com'
         }
     };
