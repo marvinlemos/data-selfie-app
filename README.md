@@ -6,6 +6,8 @@ My Mood App is a small service that allows you to save information about your mo
 ## 1. Overview
 In this project, we explore some cool Javascripts functionalities, like API, Geolocation, POST requests, and so on.
 
+A demo version can be found [HERE](https://my-mood-app.herokuapp.com/).
+
 ## 2. Requirements
 
 You need NodeJs and NPM installed. Also, since we are using [Weatherbit API](https://rapidapi.com/weatherbit/api/weather) to retrieve weather information, you must get an API_KEY and set it in a .env file.
